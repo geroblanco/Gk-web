@@ -59,6 +59,7 @@
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .topbarInner{
+      position:relative;
       max-width:var(--max); margin:0 auto; padding:14px 18px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
@@ -67,7 +68,7 @@
       min-width: 220px;
     }
     .mark{
-      width:38px; height:38px; border-radius:12px;
+      width:36px; height:36px; border-radius:12px;
       background: linear-gradient(135deg, rgba(124,134,255,.22), rgba(255,255,255,.06));
       border:1px solid var(--line);
       display:flex; align-items:center; justify-content:center;
@@ -728,6 +729,80 @@
     .finalCta b{font-size:14px}
     .finalCta span{display:block; margin-top:4px; color:var(--muted); font-size:12px}
 
+  
+    /* ==========================
+       FIX NAV MOBILE (TOP)
+       ========================== */
+    .menuBtn{
+      display:none;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:850;
+      font-size:12px;
+      cursor:pointer;
+      transition:.18s transform ease, .18s background ease;
+      white-space:nowrap;
+    }
+    .menuBtn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+    .menuIcon{
+      width:18px; height:12px;
+      position:relative;
+      display:inline-block;
+    }
+    .menuIcon::before, .menuIcon::after, .menuIcon span{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      height:2px;
+      border-radius: 4px;
+      background: rgba(255,255,255,.85);
+      transform-origin:center;
+      transition: .22s ease;
+    }
+    .menuIcon::before{top:0}
+    .menuIcon::after{bottom:0}
+    .menuBtn[aria-expanded="true"] .menuIcon::before{
+      transform: translateY(5px) rotate(45deg);
+    }
+    .menuBtn[aria-expanded="true"] .menuIcon::after{
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    /* Compact topbar on small screens */
+    @media (max-width: 680px){
+      .topbarInner{
+      position:relative;
+        padding:10px 12px;
+        gap:10px;
+      }
+      .brand{min-width:auto}
+      .brandText b{font-size:12px}
+      .brandText span{font-size:11px}
+      .menuBtn{display:inline-flex}
+      .nav{
+        display:none;
+        position:absolute;
+        top:56px;
+        right:12px;
+        left:12px;
+        flex-direction:column;
+        gap:10px;
+        padding:12px;
+        border-radius: 16px;
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(11,11,16,.82);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 24px 80px rgba(0,0,0,.55);
+      }
+      .nav.open{display:flex}
+      .chip{width:100%; justify-content:center}
+    }
+
   </style>
 </head>
 
@@ -745,8 +820,14 @@
         </div>
       </div>
 
-      <nav class="nav">
-        <a class="chip" href="#verdad">La verdad</a>
+      
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="navMenu" type="button">
+        <span class="menuIcon" aria-hidden="true"></span>
+        Menú
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Secciones">
+<a class="chip" href="#verdad">La verdad</a>
         <a class="chip" href="#video">Video</a>
         <a class="chip" href="#para-quien">Para quién</a>
         <a class="chip" href="#metodo">Método</a>
@@ -754,6 +835,7 @@
         <a class="chip" href="#sobre">Sobre mí</a>
         <a class="chip primary" href="#aplicar">Aplicar</a>
       </nav>
+
     </div>
   </div>
 
@@ -792,7 +874,7 @@
           </div>
           <div class="photoOverlay">
             <b>Gerónimo Kombolitis</b>
-            <span>Emprendedor joven · Construyendo estándar LATAM</span>
+            <span>Empresario joven · Construyendo estándar LATAM</span>
           </div>
         </div>
 
@@ -817,11 +899,13 @@
 
     <section class="panel section reveal delay-1" id="video">
       <h2>Mi postura (video)</h2>
+      <p>Pegá tu video principal acá. Que sea corto y con postura: 60–120 segundos.</p>
 
       <div class="videoWrap">
         <!-- Reemplazá el ID por tu video de YouTube. Ej: https://www.youtube.com/watch?v=VIDEO_ID -->
         <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+      <div class="videoNote">Tip: subilo en YouTube como “no listado” si querés que solo esté en la web.</div>
     </section>
 
     <div class="cinemaDivider" aria-hidden="true"></div>
@@ -928,7 +1012,8 @@
     <div class="cinemaDivider" aria-hidden="true"></div>
 
     <section class="panel section reveal" id="prueba">
-      <h2>Prueba social</h2>
+      <h2>Prueba social (poné tu realidad)</h2>
+      <p>Acá podés sumar testimonios o resultados. Te dejo 2 espacios listos (editables).</p>
 
       <div class="quotes">
         <div class="quote">
@@ -1060,6 +1145,7 @@
 
           <div class="formActions">
             <button class="btn primary" id="submitBtn" type="submit">Enviar y abrir WhatsApp →</button>
+            <span class="note">Si no pegaste la URL de Sheets, igual abre WhatsApp.</span>
           </div>
         </form>
       </div>
@@ -1317,6 +1403,44 @@
 
       // Habilitamos al primer toque en pantalla (mobile-first)
       window.addEventListener('pointerdown', requestPermission, { once:true, passive:true });
+    })();
+
+  
+    // ==========================
+    // Mobile menu toggle
+    // ==========================
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('navMenu');
+      if (!btn || !menu) return;
+
+      function closeMenu(){
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+
+      btn.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Close when tapping a link
+      menu.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (a) closeMenu();
+      });
+
+      // Close on outside tap
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('open')) return;
+        if (e.target.closest('#navMenu') || e.target.closest('#menuBtn')) return;
+        closeMenu();
+      }, { passive:true });
+
+      // Close on resize to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 680) closeMenu();
+      }, { passive:true });
     })();
 
   </script>
