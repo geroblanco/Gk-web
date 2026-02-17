@@ -1,0 +1,1328 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gerónimo Kombolitis | Del Sillón al Sistema</title>
+  <meta name="description" content="Aplicá a un diagnóstico estratégico para convertir tu barbería en una empresa real. Sistemas, números y ejecución. Estándar LATAM." />
+  <meta name="theme-color" content="#0b0b10" />
+
+  <style>
+    :root{
+      --bg:#0b0b10;
+      --bg2:#0f1018;
+      --panel1: rgba(255,255,255,.035);
+      --panel2: rgba(255,255,255,.055);
+      --line:rgba(255,255,255,.11);
+      --line2:rgba(255,255,255,.16);
+      --text:#f4f5f7;
+      --muted:rgba(244,245,247,.72);
+      --muted2:rgba(244,245,247,.56);
+      --white:#ffffff;
+      --black:#09090d;
+
+      /* Tonalidades */
+      --slate:#1a1d2a;          /* azul grisáceo muy oscuro */
+      --smoke:#141622;          /* gris oscuro con profundidad */
+      --steel:#aeb7c6;          /* gris acero */
+      --accent:#7c86ff;         /* violeta/azul suave (premium, no chillón) */
+      --accent2:#3fd7c7;        /* teal suave, apenas */
+      --accentWarm:#f2c46d;     /* dorado suave, muy sutil */
+
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --r: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1000px 600px at 10% 0%, rgba(124,134,255,.12), transparent 55%),
+        radial-gradient(900px 520px at 90% 10%, rgba(63,215,199,.10), transparent 58%),
+        radial-gradient(900px 520px at 50% 95%, rgba(242,196,109,.08), transparent 60%),
+        radial-gradient(1100px 650px at 15% 5%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,.05), transparent 55%),
+        radial-gradient(900px 500px at 50% 95%, rgba(255,255,255,.04), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color:var(--text);
+      line-height:1.25;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 72px}
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,16,.55);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbarInner{
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .mark{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,134,255,.22), rgba(255,255,255,.06));
+      border:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; letter-spacing:.04em;
+    }
+    .brandText b{display:block; font-size:13px; letter-spacing:.2px}
+    .brandText span{display:block; font-size:12px; color:var(--muted)}
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      padding:9px 12px;
+      border:1px solid var(--line);
+      background: var(--panel1);
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      transition:.18s transform ease, .18s background ease, .18s color ease;
+      user-select:none;
+    }
+    .chip:hover{transform:translateY(-1px); background:rgba(255,255,255,.06); color:var(--text)}
+    .chip.primary{
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.86));
+      color:var(--black);
+      border-color: rgba(255,255,255,.22);
+      font-weight:750;
+    }
+    .chip.primary:hover{background:#fff}
+
+    /* HERO */
+    .hero{
+      padding:56px 0 26px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding-top:34px}
+    }
+    .panel{
+      border:1px solid var(--line);
+      background: var(--panel1);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroLeft{padding:26px 24px 22px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .pulse{
+      width:8px; height:8px; border-radius:50%;
+      background: rgba(63,215,199,.92);
+      box-shadow: 0 0 0 0 rgba(63,215,199,.22);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(63,215,199,.22)}
+      70%{box-shadow:0 0 0 12px rgba(255,255,255,0)}
+      100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size: 52px;
+      letter-spacing: -1.3px;
+      line-height:1.02;
+    }
+    @media (max-width: 520px){ h1{font-size:40px} }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 62ch;
+    }
+    .truth{
+      margin:14px 0 0;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.10));
+      color: var(--text);
+    }
+    .truth b{display:block; font-size:12px; color:var(--muted2); letter-spacing:.14em; text-transform:uppercase}
+    .truth span{display:block; margin-top:7px; font-size:15px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:13px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:750;
+      font-size:14px;
+      transition:.18s transform ease, .18s background ease;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.07)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.86));
+      color:var(--black);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn.primary:hover{background:#fff}
+    .micro{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:12px;
+    }
+
+    /* Right hero: photo block */
+    .heroRight{
+      display:grid;
+      grid-template-rows: 1fr auto;
+      gap:12px;
+      padding:14px;
+    }
+    .photoFrame{
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(700px 420px at 30% 30%, rgba(124,134,255,.14), transparent 58%),
+        radial-gradient(800px 440px at 80% 10%, rgba(63,215,199,.10), transparent 55%),
+        rgba(0,0,0,.22);
+      overflow:hidden;
+      position:relative;
+      min-height: 360px;
+    }
+    .photoFrame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .photoOverlay{
+      position:absolute; inset:auto 14px 14px 14px;
+      border-radius: 14px;
+      padding:12px 12px;
+      border:1px solid var(--line2);
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+    }
+    .photoOverlay b{display:block; font-size:13px}
+    .photoOverlay span{display:block; margin-top:4px; font-size:12px; color:var(--muted)}
+    .miniGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 900px){ .miniGrid{grid-template-columns:1fr} }
+    .miniCard{
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: var(--panel1);
+      padding:12px;
+    }
+    .miniCard b{display:block; font-size:12px; color:var(--muted2); letter-spacing:.14em; text-transform:uppercase}
+    .miniCard span{display:block; margin-top:8px; font-size:13px; color:var(--text)}
+
+    /* Sections */
+    .section{
+      margin-top:16px;
+      padding:24px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.3px;
+    }
+    .section p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      max-width: 80ch;
+    }
+
+    /* Video */
+    .videoWrap{
+      margin-top:14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0,0,0,.24), rgba(0,0,0,.12));
+      overflow:hidden;
+      position:relative;
+      padding-top:56.25%;
+    }
+    .videoWrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+    .videoNote{margin-top:10px; color:var(--muted2); font-size:12px}
+
+    /* Apply */
+    .applyGrid{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:16px;
+      align-items:stretch;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .applyGrid{grid-template-columns:1fr} }
+    .applyLeft{
+      padding:18px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.10));
+    }
+    .applyLeft ul{margin:12px 0 0; padding-left:18px; color:var(--muted); font-size:13px}
+    .applyLeft li{margin:8px 0}
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      padding:18px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: var(--panel1);
+    }
+    @media (max-width: 650px){ form{grid-template-columns:1fr} }
+    label{display:flex; flex-direction:column; gap:8px; font-size:12px; color:var(--muted)}
+    input, select, textarea{
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.24);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(255,255,255,.20);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.06);
+    }
+    textarea{grid-column:1/-1; min-height:92px; resize:vertical}
+    .formActions{
+      grid-column:1/-1;
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      margin-top:2px;
+    }
+    .status{
+      grid-column:1/-1;
+      display:none;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.20);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .note{
+      color:var(--muted2);
+      font-size:12px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:22px;
+      padding:18px 6px 0;
+      color:var(--muted2);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between;
+    }
+
+    /* Floating WhatsApp */
+    .waFloat{
+      position:fixed;
+      right:16px; bottom:16px;
+      z-index:50;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:13px 16px;
+      border-radius:999px;
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      color:white;
+      font-weight:800;
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      transition:.18s transform ease;
+    }
+    .waFloat:hover{transform:translateY(-2px)}
+    .waIcon{
+      width:18px; height:18px; border-radius:4px;
+      background: rgba(0,0,0,.15);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:900;
+      font-size:12px;
+    }
+  
+    /* ==========================
+       ANIMACIONES ZARPADAS (pero premium)
+       ========================== */
+
+    /* Fondo con movimiento suave */
+    body::before{
+      content:"";
+      position:fixed; inset:-20%;
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(124,134,255,.12), transparent 60%),
+        radial-gradient(900px 520px at 80% 20%, rgba(63,215,199,.10), transparent 62%),
+        radial-gradient(900px 520px at 50% 90%, rgba(242,196,109,.08), transparent 62%);
+      filter: blur(18px);
+      opacity:.65;
+      transform: translate3d(0,0,0);
+      animation: floatBg 14s ease-in-out infinite alternate;
+      pointer-events:none;
+      z-index:-1;
+    }
+    @keyframes floatBg{
+      0%{transform: translate3d(-1.5%, -1%, 0) scale(1)}
+      50%{transform: translate3d(1.5%, 1.2%, 0) scale(1.03)}
+      100%{transform: translate3d(0.5%, -1.2%, 0) scale(1.01)}
+    }
+
+    /* Brillo diagonal que recorre botones */
+    .btn, .chip, .waFloat{
+      position:relative;
+      overflow:hidden;
+      will-change: transform;
+    }
+    .btn::after, .chip::after, .waFloat::after{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-60%;
+      width:40%;
+      height:180%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: rotate(18deg);
+      opacity:0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+    }
+    .btn:hover::after, .chip:hover::after, .waFloat:hover::after{
+      opacity:1;
+      animation: shine 1.1s ease forwards;
+    }
+    @keyframes shine{
+      0%{left:-60%}
+      100%{left:140%}
+    }
+
+    /* Hover con “lift” + tilt sutil */
+    .panel{
+      transform: translate3d(0,0,0);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .panel:hover{
+      transform: translate3d(0,-3px,0) scale(1.003);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Micro “glow” */
+    .panel::before{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius: var(--r);
+      background: radial-gradient(600px 280px at 30% 0%, rgba(124,134,255,.10), transparent 55%),
+                  radial-gradient(520px 260px at 90% 20%, rgba(63,215,199,.08), transparent 55%);
+      opacity:0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+    }
+    .panel:hover::before{opacity:1}
+
+    /* Entrada animada al cargar */
+    .heroLeft{
+      animation: enterLeft .65s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .heroRight{
+      animation: enterRight .65s cubic-bezier(.2,.8,.2,1) .08s both;
+    }
+    @keyframes enterLeft{
+      from{opacity:0; transform: translate3d(-10px, 8px, 0); filter: blur(6px)}
+      to{opacity:1; transform: translate3d(0,0,0); filter: blur(0)}
+    }
+    @keyframes enterRight{
+      from{opacity:0; transform: translate3d(10px, 10px, 0); filter: blur(6px)}
+      to{opacity:1; transform: translate3d(0,0,0); filter: blur(0)}
+    }
+
+    /* Reveal on scroll */
+    .reveal{
+      opacity:0;
+      transform: translate3d(0,14px,0);
+      filter: blur(8px);
+      transition: opacity .65s cubic-bezier(.2,.8,.2,1),
+                  transform .65s cubic-bezier(.2,.8,.2,1),
+                  filter .65s cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform: translate3d(0,0,0);
+      filter: blur(0);
+    }
+    .reveal.delay-1{transition-delay:.06s}
+    .reveal.delay-2{transition-delay:.12s}
+    .reveal.delay-3{transition-delay:.18s}
+
+    /* Scroll indicator */
+    .scrollHint{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:14px;
+      color: var(--muted2);
+      font-size:12px;
+    }
+    .mouse{
+      width:18px; height:28px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .mouse::after{
+      content:"";
+      width:3px; height:6px;
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+      position:absolute; left:50%; top:6px;
+      transform: translateX(-50%);
+      animation: wheel 1.25s ease-in-out infinite;
+    }
+    @keyframes wheel{
+      0%{opacity:.2; transform: translate(-50%,0)}
+      50%{opacity:1; transform: translate(-50%,8px)}
+      100%{opacity:.2; transform: translate(-50%,0)}
+    }
+
+    /* Respeto a usuarios con reducción de movimiento */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
+      body::before{display:none !important}
+    }
+
+  
+    /* ==========================
+       ULTRA (Mobile first)
+       ========================== */
+
+    /* Capas parallax muy suaves (no rompe performance) */
+    .parallaxLayer{
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      z-index:-2;
+      opacity:.55;
+      filter: blur(10px);
+      transform: translate3d(0,0,0);
+      will-change: transform;
+    }
+    .parallaxLayer.layer1{
+      background: radial-gradient(900px 520px at 18% 8%, rgba(124,134,255,.16), transparent 62%);
+    }
+    .parallaxLayer.layer2{
+      background: radial-gradient(900px 520px at 82% 18%, rgba(63,215,199,.12), transparent 64%);
+      opacity:.45;
+      filter: blur(14px);
+    }
+    .parallaxLayer.layer3{
+      background: radial-gradient(900px 520px at 50% 88%, rgba(242,196,109,.10), transparent 66%);
+      opacity:.35;
+      filter: blur(16px);
+    }
+
+    /* Typewriter */
+    .typeWrap{
+      display:inline-block;
+      position:relative;
+    }
+    .caret{
+      display:inline-block;
+      width:10px;
+      height:1.05em;
+      margin-left:6px;
+      vertical-align:-.12em;
+      background: rgba(255,255,255,.75);
+      border-radius:3px;
+      animation: blink 1s steps(1,end) infinite;
+    }
+    @keyframes blink{ 50%{opacity:0} }
+
+    /* Transición “cinema” entre secciones (reveal ya existe) */
+    .cinemaDivider{
+      height:1px;
+      margin: 14px 0 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+      opacity:.9;
+    }
+
+    /* Pequeño “snap” visual (sin scroll-snap que a veces molesta en iOS) */
+    .section{scroll-margin-top:84px}
+
+  
+    /* ==========================
+       EXTRA SECTIONS
+       ========================== */
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+
+    .tile{
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .tile b{display:block; font-size:12px; color:var(--muted2); letter-spacing:.14em; text-transform:uppercase}
+    .tile span{display:block; margin-top:8px; color:var(--text); font-size:14px}
+    .tile p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.35}
+
+    .metricRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .metricRow{grid-template-columns:1fr} }
+    .metric{
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding:14px;
+    }
+    .metric .num{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:-.6px;
+    }
+    .metric .label{margin-top:4px; color:var(--muted); font-size:12px}
+
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:14px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      padding:14px;
+    }
+    .step .n{
+      width:30px; height:30px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      background: linear-gradient(135deg, rgba(124,134,255,.20), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.12);
+      flex:0 0 auto;
+    }
+    .step b{display:block; font-size:13px}
+    .step p{margin:6px 0 0; color:var(--muted); font-size:13px; line-height:1.35}
+
+    .quotes{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .quotes{grid-template-columns:1fr} }
+    .quote{
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding:14px;
+    }
+    .quote p{margin:0; color:var(--text); font-size:13px; line-height:1.45}
+    .quote span{display:block; margin-top:10px; color:var(--muted); font-size:12px}
+
+    .socialRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .socialBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:800;
+      transition:.18s transform ease, .18s background ease;
+    }
+    .socialBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06)}
+    .socialBtn .i{
+      width:18px; height:18px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      display:flex; align-items:center; justify-content:center;
+      font-size:12px; font-weight:900;
+    }
+
+    details{
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      padding:12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:850;
+      font-size:13px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faqA{margin-top:10px; color:var(--muted); font-size:13px; line-height:1.45}
+
+    .finalCta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:14px;
+      padding:16px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(124,134,255,.10), rgba(0,0,0,.16));
+    }
+    .finalCta b{font-size:14px}
+    .finalCta span{display:block; margin-top:4px; color:var(--muted); font-size:12px}
+
+  </style>
+</head>
+
+<body>
+  <div class="parallaxLayer layer1" aria-hidden="true"></div>
+  <div class="parallaxLayer layer2" aria-hidden="true"></div>
+  <div class="parallaxLayer layer3" aria-hidden="true"></div>
+  <div class="topbar">
+    <div class="topbarInner">
+      <div class="brand">
+        <div class="mark">GK</div>
+        <div class="brandText">
+          <b>Gerónimo Kombolitis</b>
+          <span>Constructor de sistemas · Estándar LATAM</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="chip" href="#verdad">La verdad</a>
+        <a class="chip" href="#video">Video</a>
+        <a class="chip" href="#para-quien">Para quién</a>
+        <a class="chip" href="#metodo">Método</a>
+        <a class="chip" href="#faq">FAQ</a>
+        <a class="chip" href="#sobre">Sobre mí</a>
+        <a class="chip primary" href="#aplicar">Aplicar</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero" id="inicio">
+      <div class="panel heroLeft">
+        <div class="kicker"><span class="pulse"></span> Diagnóstico estratégico · Para dueños con ambición</div>
+
+        <h1><span class="typeWrap"><span id="typeText">Del sillón</span><span class="caret" aria-hidden="true"></span></span><br/>al sistema.</h1>
+
+        <p class="sub">
+          Si tu barbería depende de vos, todavía no es negocio. Acá se construye estructura:
+          números, procesos, equipo y marca. Sin humo.
+        </p>
+
+        <div class="truth" id="verdad">
+          <b>Verdad incómoda</b>
+          <span><strong>Tu barbería no crece por talento.</strong> Crece por sistema.</span>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#aplicar">Aplicar al diagnóstico →</a>
+          <a class="btn" id="ctaWhatsAppTop" style="background:linear-gradient(135deg, #25D366, #1ebe5d); color:white; border:none;" href="#">WhatsApp directo</a>
+          <a class="btn" href="#video">Ver mi postura</a>
+        </div>
+
+        <div class="micro">No es para todos: solo dueños que quieren dejar el autoempleo.</div>
+      </div>
+
+      <div class="panel heroRight">
+        <div class="photoFrame">
+          <!-- Reemplazá "tu-foto.jpg" por tu foto (puede ser URL o archivo en tu hosting) -->
+          <img src="tu-foto.jpg" alt="Foto de Gerónimo" onerror="this.style.display='none'; this.parentElement.querySelector('.photoFallback').style.display='flex';" />
+          <div class="photoFallback" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; color:rgba(244,245,247,.65); font-weight:700; letter-spacing:.08em;">
+            PONÉ TU FOTO (tu-foto.jpg)
+          </div>
+          <div class="photoOverlay">
+            <b>Gerónimo Kombolitis</b>
+            <span>Empresario joven · Construyendo estándar LATAM</span>
+          </div>
+        </div>
+
+        <div class="miniGrid">
+          <div class="miniCard">
+            <b>Enfoque</b>
+            <span>Realidad + estructura (no motivación vacía)</span>
+          </div>
+          <div class="miniCard">
+            <b>Resultado</b>
+            <span>Negocio que funcione sin vos</span>
+          </div>
+          <div class="miniCard">
+            <b>Estilo</b>
+            <span>Minimal · directo · con carácter</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal delay-1" id="video">
+      <h2>Mi postura (video)</h2>
+      <p>Pegá tu video principal acá. Que sea corto y con postura: 60–120 segundos.</p>
+
+      <div class="videoWrap">
+        <!-- Reemplazá el ID por tu video de YouTube. Ej: https://www.youtube.com/watch?v=VIDEO_ID -->
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="videoNote">Tip: subilo en YouTube como “no listado” si querés que solo esté en la web.</div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+
+
+    <section class="panel section reveal delay-2" id="sobre">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy Gerónimo Kombolitis. Construyo sistemas. Vengo del negocio real: operación, equipo y decisiones difíciles.
+        Documento proceso y muestro números, estructura y ejecución para elevar el estándar de las barberías en habla hispana.
+      </p>
+    </section>
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal delay-1" id="que-hago">
+      <h2>Qué construyo (en la práctica)</h2>
+      <p>No vendo “tips”. Construyo estructura. Esto es lo que ataco primero cuando un dueño está estancado.</p>
+
+      <div class="grid3">
+        <div class="tile">
+          <b>NÚMEROS</b>
+          <span>Rentabilidad real</span>
+          <p>Costos, margen, punto de equilibrio, flujo. Si no sabés esto, tu negocio es una sensación.</p>
+        </div>
+        <div class="tile">
+          <b>SISTEMA</b>
+          <span>Operación que corre sola</span>
+          <p>Agenda, experiencia, protocolos, control del día. Menos caos, más consistencia.</p>
+        </div>
+        <div class="tile">
+          <b>EQUIPO</b>
+          <span>Roles y reglas</span>
+          <p>Selección, retención, cultura y estructura. Sin reglas claras, la barbería te maneja.</p>
+        </div>
+      </div>
+
+      <div class="finalCta">
+        <div>
+          <b>Si querés construir de verdad, aplicá al diagnóstico.</b>
+          <span>Te respondo por WhatsApp con próximos pasos.</span>
+        </div>
+        <a class="btn primary" href="#aplicar">Aplicar →</a>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal delay-2" id="para-quien">
+      <h2>Para quién es</h2>
+      <p>Para dueños y futuros dueños que quieren pasar de “laburar todo el día” a “tener un negocio”.</p>
+
+      <div class="twoCol">
+        <div class="tile">
+          <b>DUEÑOS</b>
+          <span>Estancados / agotados</span>
+          <p>Facturás pero no te queda. Te absorbe la operación y el equipo no se sostiene.</p>
+        </div>
+        <div class="tile">
+          <b>BARBEROS</b>
+          <span>Que quieren abrir</span>
+          <p>Querés local, pero con estructura. Evitar errores caros y arrancar con sistema.</p>
+        </div>
+      </div>
+
+      <div class="metricRow">
+        <div class="metric"><div class="num">0%</div><div class="label">humo</div></div>
+        <div class="metric"><div class="num">100%</div><div class="label">sistema</div></div>
+        <div class="metric"><div class="num">LATAM</div><div class="label">estándar en construcción</div></div>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal delay-3" id="metodo">
+      <h2>Mi método (simple y brutal)</h2>
+      <p>3 pasos. Sin vueltas. Lo que no se mide, no se controla. Lo que no se controla, te controla.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <div>
+            <b>Diagnóstico real</b>
+            <p>Vemos números, estructura, equipo y bloqueos. Identificamos dónde se te va la plata y la energía.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <div>
+            <b>Sistema operativo</b>
+            <p>Protocolos + control del día + reglas. Tu barbería empieza a funcionar con orden, no con suerte.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div>
+            <b>Escala</b>
+            <p>Equipo, roles y crecimiento: alquiler de puestos, expansión, o modelo que te deje tiempo y margen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal" id="prueba">
+      <h2>Prueba social (poné tu realidad)</h2>
+      <p>Acá podés sumar testimonios o resultados. Te dejo 2 espacios listos (editables).</p>
+
+      <div class="quotes">
+        <div class="quote">
+          <p>“En 30 días pasé de caos total a control. Lo más fuerte fue entender mis números y ordenar el equipo.”</p>
+          <span>— Cliente / Dueño (poné nombre + ciudad)</span>
+        </div>
+        <div class="quote">
+          <p>“Dejé de depender de estar todo el día. Armamos sistema de agenda, protocolo y roles. Se siente empresa.”</p>
+          <span>— Cliente / Dueño (poné nombre + país)</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal" id="redes">
+      <h2>Redes (seguime y mirá el proceso)</h2>
+      <p>Documentación real, postura, y construcción del estándar. Sin acting.</p>
+
+      <div class="socialRow">
+        <a class="socialBtn" id="igBtn" href="#" target="_blank" rel="noopener"><span class="i">IG</span>Instagram</a>
+        <a class="socialBtn" id="ttBtn" href="#" target="_blank" rel="noopener"><span class="i">TT</span>TikTok</a>
+        <a class="socialBtn" id="ytBtn" href="#" target="_blank" rel="noopener"><span class="i">YT</span>YouTube</a>
+        <a class="socialBtn" id="waBtnMid" href="#"><span class="i">WA</span>WhatsApp</a>
+      </div>
+    </section>
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+    <section class="panel section reveal" id="faq">
+      <h2>FAQ</h2>
+      <p>Preguntas que te van a surgir (respuestas directas).</p>
+
+      <details>
+        <summary>¿Cuánto tardás en responder? <span>+</span></summary>
+        <div class="faqA">Depende del volumen, pero la idea es responder lo más rápido posible. Si aplicás, te llega WhatsApp con el mensaje listo.</div>
+      </details>
+
+      <details>
+        <summary>¿Esto es para “barberos” o para “dueños”? <span>+</span></summary>
+        <div class="faqA">Principalmente dueños o futuros dueños. Si querés crecer, necesitás números, sistema y equipo (no solo técnica).</div>
+      </details>
+
+      <details>
+        <summary>¿Me vas a vender algo? <span>+</span></summary>
+        <div class="faqA">Primero diagnóstico. Si hay encaje y querés avanzar, se define el próximo paso (mentoría, sistema, acompañamiento).</div>
+      </details>
+    </section>
+
+
+    <div class="cinemaDivider" aria-hidden="true"></div>
+
+
+
+    <section class="panel section reveal delay-3" id="aplicar">
+      <h2>Aplicá al diagnóstico estratégico</h2>
+      <p>Completá esto en 40 segundos. Se registra en Google Sheets y te abre WhatsApp con el mensaje listo.</p>
+
+      <div class="applyGrid">
+        <div class="applyLeft">
+          <b style="display:block; font-size:13px; letter-spacing:.04em;">Antes de aplicar</b>
+          <ul>
+            <li>Si querés “tips” sueltos, este no es el lugar.</li>
+            <li>Si querés <strong>estructura</strong> (números, procesos, equipo), sí.</li>
+            <li>Te respondo por WhatsApp con un primer diagnóstico y próximos pasos.</li>
+          </ul>
+          <div style="margin-top:12px" class="note">Privacidad: tus datos se usan solo para contactarte por el diagnóstico.</div>
+        </div>
+
+        <form id="leadForm">
+          <label>
+            Nombre
+            <input name="nombre" required placeholder="Tu nombre" />
+          </label>
+
+          <label>
+            WhatsApp
+            <input name="whatsapp" required placeholder="+54 9 ..." />
+          </label>
+
+          <label>
+            Email (opcional)
+            <input name="email" type="email" placeholder="tu@email.com" />
+          </label>
+
+          <label>
+            País
+            <select name="pais" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option>Argentina</option>
+              <option>México</option>
+              <option>Colombia</option>
+              <option>Chile</option>
+              <option>Perú</option>
+              <option>España</option>
+              <option>Otro</option>
+            </select>
+          </label>
+
+          <label>
+            Situación
+            <select name="situacion" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option>Tengo barbería (soy dueño)</option>
+              <option>Trabajo en barbería (quiero abrir)</option>
+              <option>Tengo barbería con socios</option>
+              <option>Otro</option>
+            </select>
+          </label>
+
+          <label>
+            Principal bloqueo
+            <select name="problema" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option>Números / rentabilidad</option>
+              <option>Equipo / rotación</option>
+              <option>Marketing / clientes</option>
+              <option>Caos operativo / falta de sistema</option>
+              <option>Escalar / abrir otra sucursal</option>
+            </select>
+          </label>
+
+          <label style="grid-column:1/-1;">
+            Contexto (1 línea)
+            <textarea name="nota" placeholder="Ej: facturo X, tengo Y barberos, pero no me cierra la rentabilidad..."></textarea>
+          </label>
+
+          <div class="status" id="statusBox"></div>
+
+          <div class="formActions">
+            <button class="btn primary" id="submitBtn" type="submit">Enviar y abrir WhatsApp →</button>
+            <span class="note">Si no pegaste la URL de Sheets, igual abre WhatsApp.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Gerónimo Kombolitis</span>
+      <span>Minimal · Disruptivo · Ejecución</span>
+      <span>Contacto: WhatsApp</span>
+    </footer>
+  </div>
+
+  <a class="waFloat" id="waFloat" href="#">
+    
+<svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 .6C7.6.6.8 7.3.8 15.6c0 2.7.7 5.3 2 7.6L.6 31.4l8.4-2.2c2.2 1.2 4.7 1.9 7.2 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.6 16 .6zm0 27.5c-2.3 0-4.6-.6-6.6-1.8l-.5-.3-5 1.3 1.3-4.9-.3-.5c-1.3-2-2-4.4-2-6.8C2.9 8.6 8.9 2.7 16 2.7s13.1 5.9 13.1 13.1S23.1 28.1 16 28.1zm7.4-9.9c-.4-.2-2.3-1.1-2.7-1.2-.4-.2-.6-.2-.9.2-.3.4-1 1.2-1.2 1.4-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7 0-.2-.9-2.1-1.3-2.9-.3-.7-.6-.6-.9-.6h-.8c-.2 0-.6.1-.9.5-.3.4-1.2 1.1-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.3 3.5 5.6 4.8.8.3 1.5.5 2 .7.8.2 1.5.2 2 .1.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5z"/>
+</svg>
+
+    WhatsApp
+  </a>
+
+  <script>
+    // ==========================
+    // CONFIG
+    // ==========================
+    const WHATSAPP_NUMBER = "5492994274546"; // +54 9 299 427 4546
+
+    // Pegá tu URL del Web App de Apps Script (termina en /exec)
+    const GOOGLE_SHEETS_WEBAPP_URL = "PEGAR_URL_AQUI";
+
+    // ==========================
+    // Helpers
+    // ==========================
+    const $ = (id) => document.getElementById(id);
+
+    function waLink(message){
+      const text = encodeURIComponent(message);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    }
+
+    function buildLeadMessage(d){
+      return [
+        "Hola Gerónimo, quiero el DIAGNÓSTICO.",
+        "",
+        `Nombre: ${d.nombre || "-"}`,
+        `WhatsApp: ${d.whatsapp || "-"}`,
+        `Email: ${d.email || "-"}`,
+        `País: ${d.pais || "-"}`,
+        `Situación: ${d.situacion || "-"}`,
+        `Bloqueo: ${d.problema || "-"}`,
+        d.nota ? `Contexto: ${d.nota}` : ""
+      ].filter(Boolean).join("\n");
+    }
+
+    function setStatus(msg){
+      const box = $("statusBox");
+      box.style.display = "block";
+      box.textContent = msg;
+    }
+
+    // CTA links
+    $("ctaWhatsAppTop").href = waLink("Hola Gerónimo, vengo de tu web. Quiero el DIAGNÓSTICO.");
+    $("waFloat").href = waLink("Hola Gerónimo, vengo de tu web. Quiero el DIAGNÓSTICO.");
+
+
+    // ==========================
+    // Social buttons
+    // ==========================
+    const LINKS = {
+      instagram: "https://instagram.com/gerokombolitis",
+      tiktok: "https://www.tiktok.com/@gerokombolitis",
+      youtube: "https://www.youtube.com/@gerokombolitis"
+    };
+
+    const igBtn = document.getElementById('igBtn');
+    const ttBtn = document.getElementById('ttBtn');
+    const ytBtn = document.getElementById('ytBtn');
+
+    if (igBtn) igBtn.href = LINKS.instagram;
+    if (ttBtn) ttBtn.href = LINKS.tiktok;
+    if (ytBtn) ytBtn.href = LINKS.youtube;
+
+    const waBtnMid = document.getElementById('waBtnMid');
+    if (waBtnMid) waBtnMid.href = waLink("Hola Gerónimo, vengo de tu web. Quiero el DIAGNÓSTICO.");
+
+
+    $("year").textContent = new Date().getFullYear();
+
+    // Form submit
+    const form = $("leadForm");
+    const submitBtn = $("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+
+      const payload = {
+        ...data,
+        page_url: window.location.href,
+        user_agent: navigator.userAgent
+      };
+
+      const msg = buildLeadMessage(data);
+
+      // If no Sheets URL, don't block the lead
+      if (!GOOGLE_SHEETS_WEBAPP_URL || GOOGLE_SHEETS_WEBAPP_URL.includes("PEGAR_URL_AQUI")) {
+        window.location.href = waLink(msg);
+        return;
+      }
+
+      try{
+        submitBtn.disabled = true;
+        setStatus("Guardando tu solicitud…");
+
+        await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify(payload)
+        });
+
+        setStatus("Listo. Abriendo WhatsApp…");
+      }catch(err){
+        setStatus("No pude guardar en Sheets, pero te abro WhatsApp igual…");
+      }finally{
+        window.location.href = waLink(msg);
+        submitBtn.disabled = false;
+      }
+    });
+  
+    // ==========================
+    // Reveal on scroll
+    // ==========================
+    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => io.observe(el));
+
+  
+    // ==========================
+    // ULTRA: Typewriter (mobile friendly)
+    // ==========================
+    (function(){
+      const el = document.getElementById('typeText');
+      if (!el) return;
+
+      const phrases = ["Del sillón", "Del caos", "Del talento", "Del ego"];
+      let p = 0, i = 0, dir = 1; // dir 1 typing, -1 deleting
+      const hold = 900;
+      const speed = 70;
+      const delSpeed = 38;
+
+      function tick(){
+        const word = phrases[p];
+        i += dir;
+
+        if (dir === 1){
+          el.textContent = word.slice(0, i);
+          if (i >= word.length){
+            dir = -1;
+            setTimeout(tick, hold);
+            return;
+          }
+          setTimeout(tick, speed);
+        } else {
+          el.textContent = word.slice(0, i);
+          if (i <= 1){
+            dir = 1;
+            p = (p + 1) % phrases.length;
+            setTimeout(tick, 260);
+            return;
+          }
+          setTimeout(tick, delSpeed);
+        }
+      }
+      tick();
+    })();
+
+    // ==========================
+    // ULTRA: Parallax por scroll (suave, no consume)
+    // ==========================
+    (function(){
+      const l1 = document.querySelector('.parallaxLayer.layer1');
+      const l2 = document.querySelector('.parallaxLayer.layer2');
+      const l3 = document.querySelector('.parallaxLayer.layer3');
+      if (!l1 || !l2 || !l3) return;
+
+      let ticking = false;
+      function onScroll(){
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY || 0;
+          // movimientos MUY pequeños
+          l1.style.transform = `translate3d(${y * -0.01}px, ${y * -0.02}px, 0)`;
+          l2.style.transform = `translate3d(${y * 0.01}px, ${y * -0.015}px, 0)`;
+          l3.style.transform = `translate3d(${y * 0.0}px, ${y * -0.01}px, 0)`;
+          ticking = false;
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
+    })();
+
+    // ==========================
+    // ULTRA: Micro-tilt por giroscopio (solo si el usuario interactúa)
+    // iOS requiere gesto para permisos -> lo habilitamos al tocar.
+    // ==========================
+    (function(){
+      const target = document.querySelector('.heroRight .photoFrame');
+      if (!target) return;
+
+      let enabled = false;
+      let lastX = 0, lastY = 0;
+
+      function applyTilt(x, y){
+        // clamp
+        const cx = Math.max(-10, Math.min(10, x));
+        const cy = Math.max(-10, Math.min(10, y));
+        // smooth
+        lastX = lastX + (cx - lastX) * 0.12;
+        lastY = lastY + (cy - lastY) * 0.12;
+        target.style.transform = `translate3d(0,0,0) rotateX(${lastY}deg) rotateY(${lastX}deg)`;
+      }
+
+      function handler(e){
+        // gamma: left-right, beta: front-back
+        const x = (e.gamma || 0) * 0.12; // scale down
+        const y = (e.beta || 0) * -0.08;
+        applyTilt(x, y);
+      }
+
+      async function requestPermission(){
+        if (enabled) return;
+        try{
+          if (typeof DeviceOrientationEvent !== "undefined" &&
+              typeof DeviceOrientationEvent.requestPermission === "function") {
+            const res = await DeviceOrientationEvent.requestPermission();
+            if (res !== "granted") return;
+          }
+          window.addEventListener('deviceorientation', handler, true);
+          enabled = true;
+        }catch(err){
+          // si falla, no pasa nada
+        }
+      }
+
+      // Habilitamos al primer toque en pantalla (mobile-first)
+      window.addEventListener('pointerdown', requestPermission, { once:true, passive:true });
+    })();
+
+  </script>
+</body>
+</html>
