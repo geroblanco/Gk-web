@@ -192,7 +192,35 @@
       grid-template-rows: 1fr auto;
       gap:12px;
       padding:14px;
-    }
+    } 
+    /* Halo premium detrás de la foto */
+.photoFrame::after{
+  content:"";
+  position:absolute;
+  inset:-30px;
+  background:
+    radial-gradient(420px 280px at 60% 35%, rgba(124,134,255,.22), transparent 60%),
+    radial-gradient(380px 260px at 30% 75%, rgba(63,215,199,.16), transparent 62%);
+  filter: blur(18px);
+  opacity:.85;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Asegura que la imagen quede arriba del halo */
+.photoFrame img,
+.photoFallback,
+.photoOverlay{
+  position:relative;
+  z-index:1;
+}
+
+/* Profundidad y brillo suave en la imagen */
+.photoFrame img{
+  filter: contrast(1.08) saturate(1.06);
+  transform: translateZ(0);
+  filter: drop-shadow(0 18px 60px rgba(0,0,0,.55));
+}
     .photoFrame{
       border-radius: 16px;
       border:1px solid var(--line);
